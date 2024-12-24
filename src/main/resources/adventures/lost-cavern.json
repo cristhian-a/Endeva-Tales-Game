@@ -1,0 +1,35 @@
+{
+  "title": "The Lost Cavern",
+  "description": "An adventure in a forgotten cavern filled with treasures and dangers.",
+  "player": {
+    "name": "Brok Sayferd",
+    "health": 100,
+    "inventory": [ "Knife" ],
+    "attributes": {
+      "body": 10,
+      "agility": 10,
+      "senses": 10,
+      "mind": 10,
+      "spirit": 10,
+      "charisma": 10
+    }
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "text": "You stand at the entrance of a dark cavern. Do you enter?",
+      "choices": [
+        {"text": "Yes", "nextScene": 2},
+        {"text": "No", "nextScene": -1}
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Inside, you see a faint glow in the distance. Do you approach it?",
+      "choices": [
+        {"text": "Approach the glow", "nextScene": 3},
+        {"text": "Turn back", "nextScene": -1}
+      ]
+    }
+  ]
+}
