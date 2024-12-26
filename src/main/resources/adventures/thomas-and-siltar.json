@@ -1,10 +1,10 @@
 {
-  "title": "The Lost Cavern",
-  "description": "An adventure in a forgotten cavern filled with treasures and dangers.",
+  "title": "Thomas & Siltar",
+  "description": "A jornada de dois caçadores de recompensas indo atrás de fortunas.",
   "player": {
-    "name": "Brok Sunder",
+    "name": "Thomas Tirrois",
     "health": 100,
-    "inventory": [ "Knife" ],
+    "inventory": [ "Espada" ],
     "attributes": {
       "body": 10,
       "agility": 10,

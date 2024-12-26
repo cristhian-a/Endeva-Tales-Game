@@ -11,6 +11,6 @@ public class InputReader {
     }
 
     public String read() {
-        return this.scanner.next();
+        return this.scanner.nextLine();
     }
 }
