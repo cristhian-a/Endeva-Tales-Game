@@ -25,10 +25,6 @@ public class Game {
         this.settings = Settings.getSettings();
     }
 
-    public String readInput() {
-        return inputReader.read();
-    }
-
     public void start() {
         this.isRunning = true;
         this.settings.setDevMode(true);
@@ -79,7 +75,7 @@ public class Game {
         String options = tb.buildMenuText(mainMenu, titles);
         TextPrinter.typeText(options);
 
-        String selectedOption = readInput();
+        String selectedOption = inputReader.read();
         int optionValue = 0;
         do {
             if (selectedOption.matches("-?\\d+")) {
@@ -91,7 +87,7 @@ public class Game {
             TextPrinter.clearAndPrintln(MainMenu.getTitle());
             TextPrinter.println("Opção Inválida!\n");
             TextPrinter.println(options);
-            selectedOption = readInput();
+            selectedOption = inputReader.read();
         } while (isRunning);
 
         var selected = adventureTitles.get(optionValue);

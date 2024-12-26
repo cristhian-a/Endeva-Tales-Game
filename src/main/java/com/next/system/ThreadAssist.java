@@ -1,12 +1,14 @@
 package com.next.system;
 
+import com.next.exception.ExceptionHandler;
+
 public class ThreadAssist {
 
     public static void delay(int timeInMillis) {
         try {
             Thread.sleep(timeInMillis);
         } catch (InterruptedException e) {
-            System.err.println("Delay interrupted by: " + e.getMessage());
+            ExceptionHandler.handleError("Delay interrupted by: " + e.getMessage());
         }
     }
 

@@ -21,7 +21,7 @@ public class JsonReader {
     public static AdventureData getAdventureData(String fileName) {
         try (InputStream input = JsonReader.class.getClassLoader().getResourceAsStream("adventures/" + fileName)) {
             if (input == null) {
-                throw new IOException("Resource not found: adventures/lost-cavern.json");
+                throw new IOException("Resource not found: adventures/" + fileName);
             }
 
             ObjectMapper mapper = new ObjectMapper();

@@ -1,5 +1,6 @@
 package com.next.graphics;
 
+import com.next.exception.ExceptionHandler;
 import com.next.game.Settings;
 
 import java.util.Random;
@@ -33,7 +34,7 @@ public class TextPrinter {
                 Thread.sleep(delayInMillis + new Random().nextInt(20));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                System.err.println("Typing effect interrupted.");
+                ExceptionHandler.handleError("Typing effect interrupted.");
             }
         }
     }
@@ -95,7 +96,7 @@ public class TextPrinter {
             System.out.print("\r"); // Clear the line completely
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("Text sweeping interrupted.");
+            ExceptionHandler.handleError("Text sweeping interrupted.");
         }
     }
 
