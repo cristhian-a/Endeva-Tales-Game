@@ -1,6 +1,6 @@
-package com.next.game;
+package com.next.system;
 
-import com.next.game.enums.Language;
+import com.next.system.enums.Language;
 
 public class Settings {
 

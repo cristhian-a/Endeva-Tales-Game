@@ -8,7 +8,7 @@ public class TextBuilder {
         StringBuilder optionsText = new StringBuilder();
         for (int i = 0; i < options.size(); i++) {
             int optionIndex = i + 1;
-            optionsText.append("    [")
+            optionsText.append("\t[")
                     .append(optionIndex)
                     .append("] ")
                     .append(options.get(i))

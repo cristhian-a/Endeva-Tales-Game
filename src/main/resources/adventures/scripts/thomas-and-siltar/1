@@ -1,0 +1,88 @@
+\begin-script
+
+-- COMENTARY THAT SHOULD BE IGNORED
+
+\title
+Capítulo 1
+
+\text
+O sol de outono pendia baixo no horizonte enquanto Thomas e Siltar chegavam ao topo da colina, sua luz dourada iluminando a cidade de Centena e destacando suas imponentes muralhas contra o céu que escurecia. As vastas paredes de pedra, desgastadas por séculos, permaneciam firmes, desafiando o tempo. O ar fresco do outono trazia o toque sutil do inverno, um aviso de dias mais severos que se aproximavam.
+Thomas puxou as rédeas de seu cavalo no alto da colina, seus olhos verdes se estreitando pensativamente enquanto observava a paisagem. Seu cabelo loiro, despenteado pelo vento e tingido pelo sol, emoldurava um rosto que ainda guardava vestígios de juventude—embora sua expressão carregasse o peso de quem já fizera escolhas difíceis.
+
+"Centena," murmurou ele, num tom que misturava admiração e cansaço. "Sempre achei que fosse maior."
+
+Siltar, montando logo atrás, soltou um sopro baixo, quase divertido.
+
+"Esperava que ela se estendesse até o horizonte?" Sua voz, grave e constante, carregava a calma da experiência. As escamas vermelho-escuras do draconato brilhavam na luz moribunda, e seus olhos dourados analisavam a cidade ao longe com uma atenção medida.
+"As muralhas são altas o suficiente para manter os problemas do lado de fora. Ou dentro."
+
+Thomas sorriu de lado, seu cavalo movendo-se inquieto sob ele.
+
+"Acho que descobriremos amanhã. Nosso amigo não disse muito sobre o nobre, além de que ele está desesperado e arruinado. Pode ser uma tarefa simples, ou pode ser um emaranhado de problemas."
+
+O olhar de Siltar permaneceu fixo na cidade.
+
+"Nobres arruinados raramente pedem ajuda sem um preço," disse ele calmamente. "E o desespero dificilmente leva a respostas simples. Seja o que for que ele precise, duvido que seja tão direto quanto gostaríamos."
+
+Thomas soltou uma risada baixa, o som aquecendo a atmosfera fria.
+
+"Você tem talento para tornar tudo sombrio, Siltar. E se o pobre homem só precisar que espantemos alguns salteadores ou recuperemos um velho herdeiro perdido? Dinheiro fácil, camas quentes e uma partida rápida."
+
+"E se não for?" retrucou Siltar, sua voz firme, mas não ríspida. "E se ele nos mandar lidar com algo pior—algo maior? Você já viu o suficiente para conhecer as probabilidades."
+
+Thomas suspirou, balançando a cabeça enquanto fazia seu cavalo avançar.
+
+"Sempre o pessimista. Mas tudo bem, eu lhe concedo essa: lidaremos com o que ele nos der. É o que fazemos."
+
+Siltar seguiu, sua figura imensa eclipsando seu cavalo enquanto os dois desciam a colina.
+
+"Lidaremos com isso," concordou ele, sua voz firme. "Mas não hoje. Hoje, encontramos uma estalagem, uma refeição e uma lareira."
+
+Thomas sorriu, lançando um olhar para o amigo.
+
+"E uma cama que não range como se estivesse tentando cantar a Canção da Tristeza."
+
+"Sua cama range porque você nunca para de se mexer," respondeu Siltar, as palavras secas, mas com um toque de humor. "Talvez desta vez você devesse dormir em vez de planejar como encantar as garçonetes."
+
+"Não é planejamento," rebateu Thomas, fingindo indignação. "É improvisação. Uma habilidade que você poderia usar mais, meu velho amigo."
+
+Siltar deu uma curta gargalhada, um leve fio de fumaça saindo de suas narinas no ar fresco.
+
+"Se é assim que você chama."
+
+Enquanto se aproximavam dos portões da cidade, a luz das tochas iluminava as ruas largas que levavam a Centena. O murmúrio distante da vida ecoava no vento—uma promessa de mercados movimentados, tavernas cheias de risadas e o calor da civilização após dias na estrada. Mas além do brilho acolhedor, havia a incerteza, a sombra de uma tarefa ainda desconhecida.
+Thomas olhou para Siltar enquanto cavalgavam.
+"Amanhã falaremos com esse nobre, descobriremos o que ele precisa. Mas hoje? Eu escolho a estalagem. E vai ter camas de verdade."
+
+O olhar de Siltar se voltou para o companheiro, um leve sorriso surgindo no canto de sua boca dracônica.
+"Desde que seja silenciosa e não custe metade do pagamento deste trabalho."
+
+"Feito," disse Thomas com um sorriso. "Só não espere que eu pule a cerveja."
+
+O draconato balançou a cabeça, sua expressão um misto de diversão e resignação.
+"Eu não ousaria."
+
+A cidade se erguia mais próxima, os portões abertos e acolhedores enquanto a dupla se aproximava. O que quer que estivesse além—nobres desesperados, intrigas complicadas ou algo pior—eles enfrentariam juntos. Por ora, a promessa de calor e descanso era suficiente.
+
+\waitInput
+
+\text
+Thomas e Siltar adentram os portões da cidade, e marcham por suas ruas movimentadas. O início da noite parece não diminuir a multidão de vozes vindas dos edifícios em torno da praça central. As luminárias ao longo das ruas vão sendo acendidas, e conforme mais e mais estrelas brotam no céu limpo daquela noite, mais as tavernas locais parecem encher.
+
+Vocês dois conseguem vaga na hospedaria Durma-bem, e deixam a maior parte dos seus equipamentos lá, bem como conseguem um local para cuidar de seus cavalos. Siltar tem alguma dificuldade com o dialeto local, mas você é quase um nativo no idioma. Longas horas ainda os separam do amanhecer, e uma caneca de cerveja e uma lareira quente não cairiam nada mal.
+
+Qual taverna você gostaria de visitar esta noite?
+
+\optionsInput
+\option
+Cerveja com Cereja (provavelmente o bar dos bundas moles e frescos. Tudo é caro, portanto deve ser bom)
+
+\option
+Chifre do Unicórnio (parece uma taverna tradicional e clássica, com boa bebida, boa música, e conversas amigáveis)
+
+\option
+Bar Zói-de-cobra (parece a mais barata, mais vagabunda, e onde há mais arruaceiros, mas quem sabe o que os vagabundos escondem...)
+
+\clear
+
+\end-script

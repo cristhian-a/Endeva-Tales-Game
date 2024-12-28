@@ -1,7 +1,7 @@
 package com.next.graphics;
 
 import com.next.exception.ExceptionHandler;
-import com.next.game.Settings;
+import com.next.system.Settings;
 
 import java.util.Random;
 
@@ -102,6 +102,11 @@ public class TextPrinter {
 
     public static void sweepText(String text) {
         sweepText(text, 5);
+    }
+
+    public static void clearLine() {
+        System.out.print("\033[2K"); // Clear the entire line
+        System.out.print("\r");      // Move the cursor to the beginning of the line
     }
 
 }

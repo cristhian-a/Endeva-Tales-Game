@@ -1,4 +1,4 @@
-package com.next.game.enums;
+package com.next.system.enums;
 
 public enum Language {
     PORTUGUESE,

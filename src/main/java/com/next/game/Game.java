@@ -5,10 +5,15 @@ import com.next.core.data.GameData;
 import com.next.graphics.TextBuilder;
 import com.next.graphics.TextPrinter;
 import com.next.graphics.menu.MainMenu;
+import com.next.io.FileReader;
 import com.next.io.InputReader;
 import com.next.io.JsonReader;
+import com.next.script.ScriptParser;
+import com.next.script.implementation.ScriptParserImpl;
+import com.next.system.Settings;
 import com.next.system.ThreadAssist;
 
+import java.io.IOException;
 import java.util.List;
 
 public class Game {
@@ -28,6 +33,8 @@ public class Game {
     public void start() {
         this.isRunning = true;
         this.settings.setDevMode(true);
+
+        readScript("");
 
         resolveMainMenu();
         run();
@@ -60,6 +67,20 @@ public class Game {
 
         TextPrinter.clearAndType("Pressione ENTER para continuar!\n");
         inputReader.read();
+
+        TextPrinter.clearConsole();
+        var scenes = this.gameData.adventureData.scenes;
+        TextPrinter.typeText(scenes.getFirst().text);
+
+        TextPrinter.typeTextQuickly("\nPressione ENTER para continuar!");
+        inputReader.read();
+        TextPrinter.clearLine();
+
+        TextPrinter.typeText(scenes.get(1).text);
+
+        TextPrinter.typeTextQuickly("\nPressione ENTER para continuar!");
+        inputReader.read();
+
         stop();
     }
 
@@ -98,5 +119,17 @@ public class Game {
 
         this.gameData.adventureData = result;
         this.gameData.players = List.of(result.player);
+    }
+
+    private void readScript(String param) {
+        var inputStream = FileReader.readFile("adventures/scripts/thomas-and-siltar/1");
+        ScriptParser scriptParser = new ScriptParserImpl();
+
+        try {
+            var result = scriptParser.parseScript(inputStream);
+            System.out.println("a");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

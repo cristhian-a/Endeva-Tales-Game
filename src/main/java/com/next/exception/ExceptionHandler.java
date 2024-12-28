@@ -1,6 +1,6 @@
 package com.next.exception;
 
-import com.next.game.Settings;
+import com.next.system.Settings;
 
 public class ExceptionHandler {
 
