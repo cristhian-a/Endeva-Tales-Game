@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface ScriptParser {
-    List<Map.Entry<String, String>> parseScript(InputStream scriptInput) throws IOException;
+    List<Instruction> parseScript(InputStream scriptInput) throws IOException;
 }

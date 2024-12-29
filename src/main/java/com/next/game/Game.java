@@ -2,12 +2,15 @@ package com.next.game;
 
 import com.next.core.adventure.AdventureData;
 import com.next.core.data.GameData;
+import com.next.game.script.ScriptExecutor;
+import com.next.game.script.implementation.ScriptExecutorImpl;
 import com.next.graphics.TextBuilder;
 import com.next.graphics.TextPrinter;
 import com.next.graphics.menu.MainMenu;
 import com.next.io.FileReader;
 import com.next.io.InputReader;
 import com.next.io.JsonReader;
+import com.next.script.Instruction;
 import com.next.script.ScriptParser;
 import com.next.script.implementation.ScriptParserImpl;
 import com.next.system.Settings;
@@ -22,10 +25,12 @@ public class Game {
     private GameData gameData;
     private InputReader inputReader;
     private final Settings settings;
+    private final ScriptExecutor scriptExecutor;
 
     public Game() {
         this.gameData = new GameData();
         this.inputReader = new InputReader();
+        this.scriptExecutor = new ScriptExecutorImpl();
 
         this.settings = Settings.getSettings();
     }
@@ -34,10 +39,13 @@ public class Game {
         this.isRunning = true;
         this.settings.setDevMode(true);
 
-        readScript("");
+        TextPrinter.clearConsole();
 
-        resolveMainMenu();
-        run();
+        var instructions = readScript("");
+        scriptExecutor.executeInstructions(instructions, gameData.additionalData);
+
+//        resolveMainMenu();
+//        run();
     }
 
     public void stop() {
@@ -121,13 +129,12 @@ public class Game {
         this.gameData.players = List.of(result.player);
     }
 
-    private void readScript(String param) {
+    private List<Instruction> readScript(String path) {
         var inputStream = FileReader.readFile("adventures/scripts/thomas-and-siltar/1");
         ScriptParser scriptParser = new ScriptParserImpl();
 
         try {
-            var result = scriptParser.parseScript(inputStream);
-            System.out.println("a");
+            return scriptParser.parseScript(inputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

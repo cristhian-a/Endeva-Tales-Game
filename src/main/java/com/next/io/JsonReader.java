@@ -19,9 +19,10 @@ public class JsonReader {
     private static final ObjectMapper mapper = new ObjectMapper();
 
     public static AdventureData getAdventureData(String fileName) {
-        try (InputStream input = JsonReader.class.getClassLoader().getResourceAsStream("adventures/" + fileName)) {
+        String path = "adventures/" + fileName;
+        try (InputStream input = FileReader.readFile(path)) {
             if (input == null) {
-                throw new IOException("Resource not found: adventures/" + fileName);
+                throw new IOException("Resource not found: " + path);
             }
 
             ObjectMapper mapper = new ObjectMapper();

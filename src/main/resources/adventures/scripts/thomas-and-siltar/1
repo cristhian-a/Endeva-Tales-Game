@@ -1,5 +1,3 @@
-\begin-script
-
 -- COMENTARY THAT SHOULD BE IGNORED
 
 \title
@@ -73,7 +71,7 @@ Vocês dois conseguem vaga na hospedaria Durma-bem, e deixam a maior parte dos s
 
 Qual taverna você gostaria de visitar esta noite?
 
-\optionsInput
+\begin-options
 \option
 Cerveja com Cereja (provavelmente o bar dos bundas moles e frescos. Tudo é caro, portanto deve ser bom)
 
@@ -83,6 +81,6 @@ Chifre do Unicórnio (parece uma taverna tradicional e clássica, com boa bebida
 \option
 Bar Zói-de-cobra (parece a mais barata, mais vagabunda, e onde há mais arruaceiros, mas quem sabe o que os vagabundos escondem...)
 
-\clear
+\end-options
 
-\end-script
+\clear

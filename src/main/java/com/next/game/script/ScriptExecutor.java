@@ -1,12 +1,10 @@
 package com.next.game.script;
 
-import com.next.game.commands.TypeExecutor;
+import com.next.script.Instruction;
 
-public class ScriptExecutor {
+import java.util.List;
+import java.util.Map;
 
-    private final TypeExecutor typeExecutor;
-
-    public ScriptExecutor() {
-        this.typeExecutor = new TypeExecutor();
-    }
+public interface ScriptExecutor {
+    void executeInstructions(List<Instruction> instructions, Map<String, Object> context);
 }
