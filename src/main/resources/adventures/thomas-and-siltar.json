@@ -7,7 +7,6 @@
     "inventory": [ "Espada" ],
     "attributes": {
       "body": 10,
-      "agility": 10,
       "senses": 10,
       "mind": 10,
       "spirit": 10,
