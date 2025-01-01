@@ -2,23 +2,10 @@ package com.next.core.character;
 
 public class Attributes {
     private int body;
-    private int agility;
     private int senses;
     private int mind;
     private int spirit;
     private int charisma;
-
-    public Attributes() {
-    }
-
-    public Attributes(int body, int agility, int senses, int mind, int spirit, int charisma) {
-        this.body = body;
-        this.agility = agility;
-        this.senses = senses;
-        this.mind = mind;
-        this.spirit = spirit;
-        this.charisma = charisma;
-    }
 
     public int getBody() {
         return body;
@@ -26,14 +13,6 @@ public class Attributes {
 
     public void setBody(int body) {
         this.body = body;
-    }
-
-    public int getAgility() {
-        return agility;
-    }
-
-    public void setAgility(int agility) {
-        this.agility = agility;
     }
 
     public int getSenses() {

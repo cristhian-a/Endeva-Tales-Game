@@ -42,7 +42,7 @@ public class Game {
         TextPrinter.clearConsole();
 
         var instructions = readScript("");
-        scriptExecutor.executeInstructions(instructions, gameData.additionalData);
+        scriptExecutor.executeInstructions(instructions, gameData);
 
 //        resolveMainMenu();
 //        run();
@@ -77,7 +77,7 @@ public class Game {
         inputReader.read();
 
         TextPrinter.clearConsole();
-        var scenes = this.gameData.adventureData.scenes;
+        var scenes = this.gameData.getAdventureData().scenes;
         TextPrinter.typeText(scenes.getFirst().text);
 
         TextPrinter.typeTextQuickly("\nPressione ENTER para continuar!");
@@ -125,8 +125,8 @@ public class Game {
         TextPrinter.typeTextSlowly("Opção selecionada: " + result.title);
         ThreadAssist.delay(2000);
 
-        this.gameData.adventureData = result;
-        this.gameData.players = List.of(result.player);
+        this.gameData.setAdventureData(result);
+        this.gameData.setPlayers(List.of(result.player));
     }
 
     private List<Instruction> readScript(String path) {

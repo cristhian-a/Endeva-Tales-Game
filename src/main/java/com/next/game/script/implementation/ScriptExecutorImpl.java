@@ -1,5 +1,6 @@
 package com.next.game.script.implementation;
 
+import com.next.core.data.GameData;
 import com.next.exception.ExceptionHandler;
 import com.next.game.commands.CommandExecutor;
 import com.next.game.commands.implementation.ContinueExecutor;
@@ -26,21 +27,20 @@ public class ScriptExecutorImpl implements ScriptExecutor {
     }
 
     @Override
-    public void executeInstructions(List<Instruction> instructions, Map<String, Object> context) {
+    public void executeInstructions(List<Instruction> instructions, GameData data) {
         for (Instruction i : instructions) {
-            executeInstruction(i, context);
+            executeInstruction(i, data);
         }
     }
 
-    private void executeInstruction(Instruction instruction, Map<String, Object> context) {
+    private void executeInstruction(Instruction instruction, GameData data) {
         String command = instruction.getCommand();
-        String arguments = instruction.getArgument();
 
         CommandExecutor executor = executors.get(command);
         if (executor == null) {
             ExceptionHandler.handleError(command + " não é um comando válido!");
         } else {
-            executor.execute(arguments, context);
+            executor.execute(instruction, data);
         }
     }
 }

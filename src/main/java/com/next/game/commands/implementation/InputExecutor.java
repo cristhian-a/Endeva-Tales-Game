@@ -1,8 +1,10 @@
 package com.next.game.commands.implementation;
 
+import com.next.core.data.GameData;
 import com.next.game.commands.CommandExecutor;
 import com.next.graphics.TextPrinter;
 import com.next.io.InputReader;
+import com.next.script.Instruction;
 
 import java.util.Map;
 
@@ -15,14 +17,14 @@ public class InputExecutor implements CommandExecutor {
     }
 
     @Override
-    public void execute(String arguments, Map<String, Object> context) {
-        if (arguments != null && !arguments.isBlank()) {
+    public void execute(Instruction instruction, GameData gameData) {
+        if (instruction.getArgument() != null && !instruction.getArgument().isBlank()) {
             TextPrinter.println("");
-            TextPrinter.typeTextQuickly(arguments);
+            TextPrinter.typeTextQuickly(instruction.getArgument());
             TextPrinter.println("");
         }
 
         String val = inputReader.read();
-        context.put("input", val);
+        gameData.getContextData().put("input", val);
     }
 }
