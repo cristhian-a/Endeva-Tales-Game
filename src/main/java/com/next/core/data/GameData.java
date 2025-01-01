@@ -8,7 +8,35 @@ import java.util.List;
 import java.util.Map;
 
 public class GameData {
-    public AdventureData adventureData;
-    public List<Player> players;
-    public Map<String, Object> additionalData = new HashMap<>();
+    private AdventureData adventureData;
+    private List<Player> players;
+    private Map<String, Object> contextData;
+
+    public GameData() {
+        this.contextData = new HashMap<>();
+    }
+
+    public AdventureData getAdventureData() {
+        return adventureData;
+    }
+
+    public void setAdventureData(AdventureData adventureData) {
+        this.adventureData = adventureData;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public Map<String, Object> getContextData() {
+        return contextData;
+    }
+
+    public void setContextData(Map<String, Object> contextData) {
+        this.contextData = contextData;
+    }
 }
