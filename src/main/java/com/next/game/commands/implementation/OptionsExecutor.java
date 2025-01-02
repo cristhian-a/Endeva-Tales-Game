@@ -20,6 +20,7 @@ public class OptionsExecutor implements CommandExecutor {
 
     @Override
     public void execute(Instruction instruction, GameData gameData) {
+        int input;
         TextPrinter.println("");
 
         List<Instruction> subInstructions = instruction.getInstructions();
@@ -31,8 +32,15 @@ public class OptionsExecutor implements CommandExecutor {
             }
         }
 
-        TextPrinter.println("");
-        String input = inputReader.read();
-        gameData.getContextData().put("input", input);
+        do {
+            TextPrinter.println("");
+            input = inputReader.readInt();
+
+            if (input > subInstructions.size() || input < 1)
+                TextPrinter.println("Opção Inválida!");
+
+        } while (input > subInstructions.size() || input < 1);
+
+        gameData.getContextData().put("input", String.valueOf(input));
     }
 }

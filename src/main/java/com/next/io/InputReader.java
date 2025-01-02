@@ -13,4 +13,10 @@ public class InputReader {
     public String read() {
         return this.scanner.nextLine();
     }
+
+    public int readInt() {
+        int i = this.scanner.nextInt();
+        this.scanner.nextLine();
+        return i;
+    }
 }

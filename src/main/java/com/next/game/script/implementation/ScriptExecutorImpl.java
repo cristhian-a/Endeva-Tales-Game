@@ -3,10 +3,7 @@ package com.next.game.script.implementation;
 import com.next.core.data.GameData;
 import com.next.exception.ExceptionHandler;
 import com.next.game.commands.CommandExecutor;
-import com.next.game.commands.implementation.ContinueExecutor;
-import com.next.game.commands.implementation.InputExecutor;
-import com.next.game.commands.implementation.OptionsExecutor;
-import com.next.game.commands.implementation.TypeExecutor;
+import com.next.game.commands.implementation.*;
 import com.next.game.script.ScriptExecutor;
 import com.next.io.InputReader;
 import com.next.script.Instruction;
@@ -20,10 +17,15 @@ public class ScriptExecutorImpl implements ScriptExecutor {
     private final Map<String, CommandExecutor> executors = new HashMap<>();
 
     public ScriptExecutorImpl() {
-        this.executors.put("\\text", new TypeExecutor());
-        this.executors.put("\\waitInput", new ContinueExecutor());
-        this.executors.put("\\input", new InputExecutor());
-        this.executors.put("\\begin-options", new OptionsExecutor(new InputReader()));
+        executors.put("\\text", new TypeExecutor());
+        executors.put("\\waitInput", new ContinueExecutor());
+        executors.put("\\input", new InputExecutor());
+        executors.put("\\begin-options", new OptionsExecutor(new InputReader()));
+        executors.put("\\begin-case", new CaseExecutor(this));
+        executors.put("\\line", new NewLineExecutor());
+        executors.put("\\clear", new ClearConsoleExecutor());
+        executors.put("\\sleep", new SleepExecutor());
+        executors.put("\\set-var", new SetVarExecutor());
     }
 
     @Override

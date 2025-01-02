@@ -62,15 +62,15 @@ public class Game {
         TextPrinter.clearConsole();
         for (int i = 0; i < 3; i++) {
             TextPrinter.clearAndPrint(".");
-            ThreadAssist.quickDelay();
+            ThreadAssist.quickSleep();
             TextPrinter.clearAndPrint("..");
-            ThreadAssist.quickDelay();
+            ThreadAssist.quickSleep();
             TextPrinter.clearAndPrint("...");
-            ThreadAssist.quickDelay();
+            ThreadAssist.quickSleep();
         }
 
         TextPrinter.clearAndTypeSlowly("Sexta-feira, 2 de Março de 1295...");
-        ThreadAssist.delay();
+        ThreadAssist.sleep();
         TextPrinter.sweepText("Sexta-feira, 2 de Março de 1295...");
 
         TextPrinter.clearAndType("Pressione ENTER para continuar!\n");
@@ -123,7 +123,7 @@ public class Game {
 
         var result = JsonReader.getAdventureData(selected.fileName);
         TextPrinter.typeTextSlowly("Opção selecionada: " + result.title);
-        ThreadAssist.delay(2000);
+        ThreadAssist.sleep(2000);
 
         this.gameData.setAdventureData(result);
         this.gameData.setPlayers(List.of(result.player));

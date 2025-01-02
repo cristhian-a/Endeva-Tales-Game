@@ -4,7 +4,7 @@ import com.next.exception.ExceptionHandler;
 
 public class ThreadAssist {
 
-    public static void delay(int timeInMillis) {
+    public static void sleep(int timeInMillis) {
         try {
             Thread.sleep(timeInMillis);
         } catch (InterruptedException e) {
@@ -12,11 +12,11 @@ public class ThreadAssist {
         }
     }
 
-    public static void delay() {
-        delay(3500);
+    public static void sleep() {
+        sleep(3500);
     }
 
-    public static void quickDelay() {
-        delay(500);
+    public static void quickSleep() {
+        sleep(500);
     }
 }
