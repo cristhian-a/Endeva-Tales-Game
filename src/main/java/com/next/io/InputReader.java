@@ -15,8 +15,12 @@ public class InputReader {
     }
 
     public int readInt() {
-        int i = this.scanner.nextInt();
-        this.scanner.nextLine();
-        return i;
+        String s = this.scanner.nextLine();
+        boolean isParseable = s.matches("-?\\d+(\\.\\d+)?");
+
+        if (isParseable)
+            return Integer.parseInt(s);
+
+        return -999;
     }
 }
