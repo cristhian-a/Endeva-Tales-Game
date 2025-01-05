@@ -16,8 +16,9 @@ public class Instruction {
         this.argument = argument;
     }
 
-    public Instruction(String command, List<Instruction> instructions) {
+    public Instruction(String command, String argument, List<Instruction> instructions) {
         this.command = command;
+        this.argument = argument;
         this.instructions = instructions;
     }
 

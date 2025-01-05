@@ -103,8 +103,15 @@ public class ScriptParserImpl implements ScriptParser {
 
                 // If a new block is denoted, create its sub instructions
                 if (line.startsWith("\\begin-")) {
+                    // Splitting into command and arguments passed in the block
+                    String[] parts = line.split(":");
+
+                    String argument = null;
+                    if (parts.length > 1) {
+                        argument = parts[1];
+                    }
                     var blockInstructions = parseBlock(reader);
-                    instructions.add(new Instruction(line, blockInstructions));
+                    instructions.add(new Instruction(parts[0], argument, blockInstructions));
 
                     currentCommand = null;
                 } else {

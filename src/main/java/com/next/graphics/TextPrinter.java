@@ -27,6 +27,10 @@ public class TextPrinter {
         System.out.println(text);
     }
 
+    public static void newLine() {
+        System.out.println();
+    }
+
     public static void print(String text, long delayInMillis) {
         for (char c : text.toCharArray()) {
             System.out.print(c);
