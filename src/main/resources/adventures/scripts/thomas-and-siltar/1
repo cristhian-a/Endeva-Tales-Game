@@ -162,7 +162,7 @@ muitos que gostariam de se livrar das despesas com os homens-rato, mas sério, i
 \line
 \text
 "Como eu disse, muitos gostariam de se livrar deles", respondeu o taverneiro, "Mas eles são muitos, e estão completamente
-enraizados no submundo da cidade. Os nobres já desistiram de lutar contra eles faz tempo. Na verdade, dizem as más linguas
+enraizados no submundo da cidade. Os nobres já desistiram de lutar contra eles faz tempo. Na verdade, dizem as más línguas
 que alguns até andam trabalhando com as feras".
 \input
 
@@ -171,6 +171,8 @@ que alguns até andam trabalhando com as feras".
 Típico
 \option
 E a você, eles deixam em paz?
+\option
+E as más línguas também disseram quem seriam esses nobres?
 \end-options
 
 \begin-case: input==1
@@ -200,6 +202,10 @@ eu esperaria, apesar de menos do que eu gostaria".
 \line
 \text
 "Ou você fecha as portas", disse o taverneiro.
+\input
+\line
+\text
+"", .
 \input
 \end-case
 
