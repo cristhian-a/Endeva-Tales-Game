@@ -1,4 +1,4 @@
-package com.next.core.data.dto;
+package com.next.core.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
