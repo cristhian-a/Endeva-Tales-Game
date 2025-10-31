@@ -1,6 +1,5 @@
 package com.next.io;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.next.core.data.scenes.AdventureData;
