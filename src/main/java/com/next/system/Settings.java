@@ -1,7 +1,9 @@
 package com.next.system;
 
 import com.next.system.enums.Language;
+import lombok.Data;
 
+@Data
 public class Settings {
 
     private static Settings settings;
@@ -43,35 +45,11 @@ public class Settings {
         Settings.settings = settings;
     }
 
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
-    }
-
-    public int getTextSpeed() {
-        return textSpeed;
-    }
-
     public void setTextSpeed(int textSpeed) {
         this.textSpeed = textSpeed;
 
         this.slowTextSpeed = textSpeed * 50;
         this.mediumTextSpeed = textSpeed * 25;
         this.quickTextSpeed = textSpeed * 10;
-    }
-
-    public int getSlowTextSpeed() {
-        return slowTextSpeed;
-    }
-
-    public int getMediumTextSpeed() {
-        return mediumTextSpeed;
-    }
-
-    public int getQuickTextSpeed() {
-        return quickTextSpeed;
     }
 }

@@ -1,5 +1,6 @@
 package com.next.io;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.next.core.data.scenes.AdventureData;
@@ -9,15 +10,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public class JsonReader {
 
     private static final ObjectMapper mapper = new ObjectMapper();
+
+    public static String getRootPath() {
+        return JsonReader.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+    }
 
     public static AdventureData getAdventureData(String fileName) {
         String path = "adventures/" + fileName;
@@ -148,6 +151,10 @@ public class JsonReader {
 
     public static <T> T readObject(String filePath, Class<T> clazz) throws IOException {
         return mapper.readValue(new File(filePath), clazz);
+    }
+
+    public static <T, U> Map<T, U> readMap(String filePath, Class<T> key, Class<U> value) throws IOException {
+        return mapper.readValue(new File(filePath), mapper.getTypeFactory().constructMapType(HashMap.class, key, value));
     }
 
     public static <T> List<T> readList(String filePath, Class<T> clazz) throws IOException {

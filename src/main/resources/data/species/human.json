@@ -1,5 +1,5 @@
 {
   "id": "human",
-  "name": "Humano",
-  "description": "A espécie mais numerosa do continente, os humanos são criativos e flexiveis."
+  "name": "species.human.name",
+  "description": "species.human.description"
 }
