@@ -1,6 +1,6 @@
 package com.next.core.adventure;
 
-import com.next.core.character.Player;
+import com.next.core.character.Character;
 
 import java.util.List;
 
@@ -8,6 +8,6 @@ public class AdventureData {
     public String fileName;
     public String title;
     public String description;
-    public Player player;
+    public Character character;
     public List<Scene> scenes;
 }
