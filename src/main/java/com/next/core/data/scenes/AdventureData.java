@@ -1,9 +1,10 @@
-package com.next.core.adventure;
+package com.next.core.data.scenes;
 
 import com.next.core.model.entities.Character;
 
 import java.util.List;
 
+@Deprecated
 public class AdventureData {
     public String fileName;
     public String title;

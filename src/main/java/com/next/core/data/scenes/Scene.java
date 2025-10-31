@@ -1,4 +1,4 @@
-package com.next.core.adventure;
+package com.next.core.data.scenes;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package com.next.io;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.next.core.adventure.AdventureData;
+import com.next.core.data.scenes.AdventureData;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,6 +1,6 @@
 package com.next.core.model.session;
 
-import com.next.core.adventure.AdventureData;
+import com.next.core.data.scenes.AdventureData;
 import com.next.core.model.entities.Character;
 import lombok.Data;
 
