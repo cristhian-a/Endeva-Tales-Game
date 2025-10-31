@@ -1,6 +1,6 @@
 package com.next.game.commands.implementation;
 
-import com.next.core.data.GameData;
+import com.next.core.model.session.GameSession;
 import com.next.game.commands.CommandExecutor;
 import com.next.game.script.ScriptExecutor;
 import com.next.script.Instruction;
@@ -17,7 +17,7 @@ public class CaseExecutor implements CommandExecutor {
     }
 
     @Override
-    public void execute(Instruction instruction, GameData data) {
+    public void execute(Instruction instruction, GameSession data) {
         boolean result = conditionEvaluator.evaluate(instruction.getArgument(), data.getContextData());
         if (result) {
             scriptExecutor.executeInstructions(instruction.getInstructions(), data);

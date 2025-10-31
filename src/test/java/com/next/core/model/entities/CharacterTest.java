@@ -1,6 +1,6 @@
-package com.next.core.character;
+package com.next.core.model.entities;
 
-import com.next.core.character.enums.ItemClass;
+import com.next.core.data.definitions.enums.ItemClass;
 import org.junit.jupiter.api.Test;
 
 public class CharacterTest {

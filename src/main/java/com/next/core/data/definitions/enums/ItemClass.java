@@ -1,4 +1,4 @@
-package com.next.core.character.enums;
+package com.next.core.data.definitions.enums;
 
 public enum ItemClass {
     POLE_ARMS,

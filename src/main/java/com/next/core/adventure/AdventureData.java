@@ -1,6 +1,6 @@
 package com.next.core.adventure;
 
-import com.next.core.character.Character;
+import com.next.core.model.entities.Character;
 
 import java.util.List;
 

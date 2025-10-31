@@ -1,12 +1,10 @@
 package com.next.game.commands.implementation;
 
-import com.next.core.data.GameData;
+import com.next.core.model.session.GameSession;
 import com.next.game.commands.CommandExecutor;
 import com.next.graphics.TextPrinter;
 import com.next.io.InputReader;
 import com.next.script.Instruction;
-
-import java.util.Map;
 
 public class InputExecutor implements CommandExecutor {
 
@@ -17,7 +15,7 @@ public class InputExecutor implements CommandExecutor {
     }
 
     @Override
-    public void execute(Instruction instruction, GameData gameData) {
+    public void execute(Instruction instruction, GameSession gameSession) {
         if (instruction.getArgument() != null && !instruction.getArgument().isBlank()) {
             TextPrinter.println("");
             TextPrinter.typeTextQuickly(instruction.getArgument());
@@ -25,6 +23,6 @@ public class InputExecutor implements CommandExecutor {
         }
 
         String val = inputReader.read();
-        gameData.getContextData().put("input", val);
+        gameSession.getContextData().put("input", val);
     }
 }

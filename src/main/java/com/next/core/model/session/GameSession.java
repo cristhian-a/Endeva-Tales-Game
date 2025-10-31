@@ -1,7 +1,7 @@
-package com.next.core.data;
+package com.next.core.model.session;
 
 import com.next.core.adventure.AdventureData;
-import com.next.core.character.Character;
+import com.next.core.model.entities.Character;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-public class GameData {
+public class GameSession {
     private AdventureData adventureData;
     private List<Character> characters;
     private Map<String, Object> contextData;
 
-    public GameData() {
+    public GameSession() {
         this.contextData = new HashMap<>();
     }
 }
