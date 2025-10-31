@@ -1,6 +1,6 @@
-package com.next.core.data;
+package com.next.core.data.definitions;
 
-import com.next.core.character.CharacterClass;
+import com.next.core.data.registry.Registry;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

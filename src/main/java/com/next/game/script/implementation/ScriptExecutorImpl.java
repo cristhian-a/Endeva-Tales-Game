@@ -1,6 +1,6 @@
 package com.next.game.script.implementation;
 
-import com.next.core.data.GameData;
+import com.next.core.model.session.GameSession;
 import com.next.exception.ExceptionHandler;
 import com.next.game.commands.CommandExecutor;
 import com.next.game.commands.implementation.*;
@@ -29,13 +29,13 @@ public class ScriptExecutorImpl implements ScriptExecutor {
     }
 
     @Override
-    public void executeInstructions(List<Instruction> instructions, GameData data) {
+    public void executeInstructions(List<Instruction> instructions, GameSession data) {
         for (Instruction i : instructions) {
             executeInstruction(i, data);
         }
     }
 
-    private void executeInstruction(Instruction instruction, GameData data) {
+    private void executeInstruction(Instruction instruction, GameSession data) {
         String command = instruction.getCommand();
 
         CommandExecutor executor = executors.get(command);

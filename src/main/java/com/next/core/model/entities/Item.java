@@ -1,4 +1,4 @@
-package com.next.core.character;
+package com.next.core.model.entities;
 
 import lombok.Data;
 

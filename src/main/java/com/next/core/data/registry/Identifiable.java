@@ -1,4 +1,4 @@
-package com.next.core.data;
+package com.next.core.data.registry;
 
 public interface Identifiable {
     String getId();

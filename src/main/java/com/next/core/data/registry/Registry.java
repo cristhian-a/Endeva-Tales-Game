@@ -1,4 +1,4 @@
-package com.next.core.data;
+package com.next.core.data.registry;
 
 import java.util.Collection;
 import java.util.HashMap;

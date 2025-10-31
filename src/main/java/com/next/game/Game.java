@@ -1,7 +1,7 @@
 package com.next.game;
 
 import com.next.core.adventure.AdventureData;
-import com.next.core.data.GameData;
+import com.next.core.model.session.GameSession;
 import com.next.game.script.ScriptExecutor;
 import com.next.game.script.implementation.ScriptExecutorImpl;
 import com.next.graphics.TextBuilder;
@@ -22,13 +22,13 @@ import java.util.List;
 public class Game {
 
     private boolean isRunning;
-    private GameData gameData;
+    private GameSession gameSession;
     private InputReader inputReader;
     private final Settings settings;
     private final ScriptExecutor scriptExecutor;
 
     public Game() {
-        this.gameData = new GameData();
+        this.gameSession = new GameSession();
         this.inputReader = new InputReader();
         this.scriptExecutor = new ScriptExecutorImpl();
 
@@ -42,7 +42,7 @@ public class Game {
         TextPrinter.clearConsole();
 
         var instructions = readScript("");
-        scriptExecutor.executeInstructions(instructions, gameData);
+        scriptExecutor.executeInstructions(instructions, gameSession);
 
 //        resolveMainMenu();
 //        run();
@@ -77,7 +77,7 @@ public class Game {
         inputReader.read();
 
         TextPrinter.clearConsole();
-        var scenes = this.gameData.getAdventureData().scenes;
+        var scenes = this.gameSession.getAdventureData().scenes;
         TextPrinter.typeText(scenes.getFirst().text);
 
         TextPrinter.typeTextQuickly("\nPressione ENTER para continuar!");
@@ -125,8 +125,8 @@ public class Game {
         TextPrinter.typeTextSlowly("Opção selecionada: " + result.title);
         ThreadAssist.sleep(2000);
 
-        this.gameData.setAdventureData(result);
-        this.gameData.setCharacters(List.of(result.character));
+        this.gameSession.setAdventureData(result);
+        this.gameSession.setCharacters(List.of(result.character));
     }
 
     private List<Instruction> readScript(String path) {

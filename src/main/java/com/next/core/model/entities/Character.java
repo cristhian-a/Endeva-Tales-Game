@@ -1,6 +1,10 @@
-package com.next.core.character;
+package com.next.core.model.entities;
 
-import com.next.core.character.enums.ItemClass;
+import com.next.core.data.definitions.CharacterClass;
+import com.next.core.data.definitions.Species;
+import com.next.core.data.definitions.enums.ItemClass;
+import com.next.core.model.stats.Attributes;
+import com.next.core.model.stats.Expertise;
 import lombok.Data;
 
 import java.util.List;
