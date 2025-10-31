@@ -1,7 +1,7 @@
 {
   "title": "The Lost Cavern",
   "description": "An adventure in a forgotten cavern filled with treasures and dangers.",
-  "player": {
+  "character": {
     "name": "Brok Sunder",
     "health": 100,
     "inventory": [ "Knife" ],
@@ -11,7 +11,8 @@
       "mind": 10,
       "spirit": 10,
       "charisma": 10
-    }
+    },
+    "expertises": null
   },
   "scenes": [
     {

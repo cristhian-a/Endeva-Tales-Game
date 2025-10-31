@@ -126,7 +126,7 @@ public class Game {
         ThreadAssist.sleep(2000);
 
         this.gameData.setAdventureData(result);
-        this.gameData.setPlayers(List.of(result.player));
+        this.gameData.setCharacters(List.of(result.character));
     }
 
     private List<Instruction> readScript(String path) {
