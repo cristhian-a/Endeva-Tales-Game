@@ -1,6 +1,6 @@
-package com.next.core.data.definitions;
+package com.next.core.data.registry;
 
-import com.next.core.data.registry.Registry;
+import com.next.core.data.definitions.CharacterClass;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -10,7 +10,8 @@ public class RegistryTest {
     @Test
     void test() {
         String id = "mage";
-        CharacterClass mage = new CharacterClass(id);
+        CharacterClass mage = new CharacterClass();
+        mage.setId(id);
         mage.setName("Mage");
 
         Registry<CharacterClass> CLASSES = new Registry<>();
@@ -26,9 +27,11 @@ public class RegistryTest {
         String idF = "fighter";
         String idP = "priest";
 
-        CharacterClass fighter = new CharacterClass(idF);
+        CharacterClass fighter = new CharacterClass();
+        fighter.setId(idF);
         fighter.setName("Fighter");
-        CharacterClass priest = new CharacterClass(idP);
+        CharacterClass priest = new CharacterClass();
+        priest.setId(idP);
         priest.setName("Priest");
 
         Registry<CharacterClass> CLASSES = new Registry<>();
