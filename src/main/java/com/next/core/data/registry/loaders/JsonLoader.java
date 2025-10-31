@@ -2,8 +2,8 @@ package com.next.core.data.registry.loaders;
 
 import com.next.core.data.definitions.CharacterClass;
 import com.next.core.data.definitions.Species;
-import com.next.core.data.dto.CharacterClassDTO;
-import com.next.core.data.dto.SpeciesDTO;
+import com.next.core.dto.CharacterClassDTO;
+import com.next.core.dto.SpeciesDTO;
 import com.next.core.data.registry.GameData;
 import com.next.io.JsonReader;
 
