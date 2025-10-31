@@ -2,8 +2,9 @@ package com.next.io;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.next.core.adventure.AdventureData;
+import com.next.core.data.scenes.AdventureData;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLDecoder;
@@ -143,5 +144,13 @@ public class JsonReader {
 
     public static List<AdventureData> loadAllAdventures() {
         return loadResources("adventures", ".json", AdventureData.class);
+    }
+
+    public static <T> T readObject(String filePath, Class<T> clazz) throws IOException {
+        return mapper.readValue(new File(filePath), clazz);
+    }
+
+    public static <T> List<T> readList(String filePath, Class<T> clazz) throws IOException {
+        return mapper.readValue(new File(filePath), mapper.getTypeFactory().constructCollectionType(List.class, clazz));
     }
 }

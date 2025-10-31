@@ -1,6 +1,6 @@
 package com.next.game;
 
-import com.next.core.adventure.AdventureData;
+import com.next.core.data.scenes.AdventureData;
 import com.next.core.model.session.GameSession;
 import com.next.game.script.ScriptExecutor;
 import com.next.game.script.implementation.ScriptExecutorImpl;
