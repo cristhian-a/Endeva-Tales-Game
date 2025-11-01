@@ -15,7 +15,7 @@ public class Localization {
 
     public Localization(Language language) {
         String path = "languages/" + PATHS[language.ordinal()];
-        String filePath = JsonReader.getRootPath() + path;
+        String filePath = JsonReader.getRootPath() + "/" + path;
 
         try {
             texts = JsonReader.readMap(filePath, String.class, String.class);

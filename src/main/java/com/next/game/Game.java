@@ -41,7 +41,7 @@ public class Game {
 
         TextPrinter.clearConsole();
 
-        var instructions = readScript("");
+        var instructions = readScript("adventures/scripts/thomas-and-siltar/1");
         scriptExecutor.executeInstructions(instructions, gameSession);
 
 //        resolveMainMenu();
@@ -130,7 +130,7 @@ public class Game {
     }
 
     private List<Instruction> readScript(String path) {
-        var inputStream = FileReader.readFile("adventures/scripts/thomas-and-siltar/1");
+        var inputStream = FileReader.readFile(path);
         ScriptParser scriptParser = new ScriptParserImpl();
 
         try {
