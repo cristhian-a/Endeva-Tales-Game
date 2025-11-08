@@ -32,21 +32,21 @@ Bar Zói-de-cobra (parece a mais barata, mais vagabunda, e onde há mais arruace
 -- BLOCO CERVEJA COM CEREJA
 \begin-case: input==1
 \load-script
-1-cherry_beer
+1/1-cherry_beer
 \end-case
 
 
 -- BLOCO CHIFRE DO UNICÓRNIO
 \begin-case: input==2
 \load-script
-1-unicorns_horn
+1/1-unicorns_horn
 \end-case
 
 
 -- BLOCO ZÓI-DE-COBRA
 \begin-case: input==3
 \load-script
-1-snake_eye
+1/1-snake_eye
 \end-case
 
 \sleep
@@ -61,7 +61,7 @@ Um novo dia amanhece!
 \clear
 
 \load-script
-2
+2/2
 
 \line
 \line
