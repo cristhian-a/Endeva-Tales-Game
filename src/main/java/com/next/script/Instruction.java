@@ -1,7 +1,10 @@
 package com.next.script;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class Instruction {
     private final String command;
     private String argument;
@@ -22,23 +25,4 @@ public class Instruction {
         this.instructions = instructions;
     }
 
-    public String getCommand() {
-        return command;
-    }
-
-    public String getArgument() {
-        return argument;
-    }
-
-    public void setArgument(String argument) {
-        this.argument = argument;
-    }
-
-    public List<Instruction> getInstructions() {
-        return instructions;
-    }
-
-    public void setInstructions(List<Instruction> instructions) {
-        this.instructions = instructions;
-    }
 }
