@@ -4,6 +4,7 @@ import com.next.core.model.session.GameSession;
 import com.next.exception.ExceptionHandler;
 import com.next.game.commands.CommandExecutor;
 import com.next.game.commands.implementation.*;
+import com.next.script.Command;
 import com.next.script.ScriptExecutor;
 import com.next.io.InputReader;
 import com.next.script.Instruction;
@@ -14,18 +15,18 @@ import java.util.Map;
 
 public class ScriptExecutorImpl implements ScriptExecutor {
 
-    private final Map<String, CommandExecutor> executors = new HashMap<>();
+    private final Map<Command, CommandExecutor> executors = new HashMap<>();
 
     public ScriptExecutorImpl() {
-        executors.put("\\text", new TypeExecutor());
-        executors.put("\\waitInput", new ContinueExecutor());
-        executors.put("\\input", new InputExecutor());
-        executors.put("\\begin-options", new OptionsExecutor(new InputReader()));
-        executors.put("\\begin-case", new CaseExecutor(this));
-        executors.put("\\line", new NewLineExecutor());
-        executors.put("\\clear", new ClearConsoleExecutor());
-        executors.put("\\sleep", new SleepExecutor());
-        executors.put("\\set-var", new SetVarExecutor());
+        executors.put(Command.TEXT, new TypeExecutor());
+        executors.put(Command.WAIT, new ContinueExecutor());
+        executors.put(Command.INPUT, new InputExecutor());
+        executors.put(Command.SELECT, new OptionsExecutor(new InputReader()));
+        executors.put(Command.CASE, new CaseExecutor(this));
+        executors.put(Command.NEW_LINE, new NewLineExecutor());
+        executors.put(Command.CLEAR, new ClearConsoleExecutor());
+        executors.put(Command.SLEEP, new SleepExecutor());
+        executors.put(Command.VAR, new SetVarExecutor());
     }
 
     @Override
@@ -36,11 +37,11 @@ public class ScriptExecutorImpl implements ScriptExecutor {
     }
 
     private void executeInstruction(Instruction instruction, GameSession data) {
-        String command = instruction.getCommand();
+        Command command = instruction.getCommand();
 
         CommandExecutor executor = executors.get(command);
         if (executor == null) {
-            ExceptionHandler.handleError(command + " não é um comando válido!");
+            ExceptionHandler.handleError("Command " + command + " is not mapped in the interpreter!");
         } else {
             executor.execute(instruction, data);
         }
