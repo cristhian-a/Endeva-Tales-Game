@@ -1,5 +1,7 @@
 package com.next.script.implementation;
 
+import com.next.exception.ExceptionHandler;
+import com.next.script.Command;
 import com.next.script.Instruction;
 import com.next.script.ScriptParser;
 
@@ -11,71 +13,21 @@ import java.util.*;
 
 public class ScriptParserImpl implements ScriptParser {
 
-//    @Override
-//    public List<Instruction> parseScript(InputStream scriptInput) throws IOException {
-//        List<Instruction> instructions = new ArrayList<>();
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(scriptInput));
-//        String line;
-//
-//        Stack<String> blockStack = new Stack<>();
-//
-//        String currentCommand = null;
-//        StringBuilder currentArguments = new StringBuilder();
-//
-//        while ((line = reader.readLine()) != null) {
-//            if (line.startsWith("--")) {
-//                continue;   // Skips comments
-//            } else if (line.startsWith("\\end-")) {
-//                // TO DO
-//                if (blockStack.isEmpty()) {
-//                    throw new IllegalStateException("Unmatched \\end command: " + line);
-//                }
-//
-//                String blockName = line.substring(5);
-//                String expectedBlockName = blockStack.pop();
-//
-//                if (!blockName.equals(expectedBlockName)) {
-//                    throw new IllegalStateException("Mismatched block names: \\begin-" + expectedBlockName + " and \\end-" + blockName);
-//                }
-//
-//                instructions.add(new Instruction(currentCommand, currentArguments.toString().trim()));
-//                currentCommand = null;
-//                currentArguments.setLength(0);
-//            } else if (!blockStack.isEmpty()) {
-//                currentArguments.append(line).append("\n");
-//            } else if (line.startsWith("\\begin-")) {
-//                // TO DO
-//                if (currentCommand != null) {
-//                    instructions.add(new Instruction(currentCommand, currentArguments.toString().trim()));
-//                }
-//
-//                String blockName = line.substring(7);
-//                blockStack.push(blockName);
-//
-//                currentCommand = line;
-//                currentArguments.setLength(0); // Clear the arguments buffer
-//            } else if (line.startsWith("\\")) {
-//                // If there's a current command, add it to the instructions
-//                if (currentCommand != null) {
-//                    instructions.add(new Instruction(currentCommand, currentArguments.toString().trim()));
-//                }
-//
-//                // Start a new command
-//                currentCommand = line;
-//                currentArguments.setLength(0); // Clear the arguments buffer
-//            } else {
-//                // Accumulate arguments for the current command
-//                currentArguments.append(line).append("\n");
-//            }
-//        }
-//
-//        // Add the last command
-//        if (currentCommand != null) {
-//            instructions.add(new Instruction(currentCommand, currentArguments.toString().trim()));
-//        }
-//
-//        return instructions;
-//    }
+    private final Map<String, Command> commandByKey;
+
+    public ScriptParserImpl() {
+        commandByKey = new HashMap<>();
+        commandByKey.put("\\text", Command.TEXT);
+        commandByKey.put("\\waitInput", Command.WAIT);
+        commandByKey.put("\\sleep", Command.SLEEP);
+        commandByKey.put("\\input", Command.INPUT);
+        commandByKey.put("\\begin-options", Command.SELECT);
+        commandByKey.put("\\option", Command.OPTION);
+        commandByKey.put("\\begin-case", Command.CASE);
+        commandByKey.put("\\line", Command.NEW_LINE);
+        commandByKey.put("\\clear", Command.CLEAR);
+        commandByKey.put("\\set-var", Command.VAR);
+    }
 
     @Override
     public List<Instruction> parseScript(InputStream scriptInput) throws IOException {
@@ -87,7 +39,7 @@ public class ScriptParserImpl implements ScriptParser {
         List<Instruction> instructions = new ArrayList<>();
         String line;
 
-        String currentCommand = null;
+        Command currentCommand = null;
         StringBuilder currentArguments = new StringBuilder();
 
         while ((line = reader.readLine()) != null) {
@@ -111,12 +63,15 @@ public class ScriptParserImpl implements ScriptParser {
                         argument = parts[1];
                     }
                     var blockInstructions = parseBlock(reader);
-                    instructions.add(new Instruction(parts[0], argument, blockInstructions));
+                    Command blockCommand = getCommandByKeyword(parts[0]);
+                    if (blockCommand != null) {
+                        instructions.add(new Instruction(blockCommand, argument, blockInstructions));
+                    }
 
                     currentCommand = null;
                 } else {
                     // Start a new command
-                    currentCommand = line;
+                    currentCommand = getCommandByKeyword(line);
                 }
 
                 currentArguments.setLength(0); // Clear the arguments buffer
@@ -132,5 +87,14 @@ public class ScriptParserImpl implements ScriptParser {
         }
 
         return instructions;
+    }
+
+    private Command getCommandByKeyword(String keyword) {
+        if (commandByKey.containsKey(keyword)) {
+            return commandByKey.get(keyword);
+        }
+
+        ExceptionHandler.handleError(keyword + " is not a valid command!");
+        return null;
     }
 }
