@@ -5,6 +5,7 @@ import com.next.exception.ExceptionHandler;
 import com.next.game.commands.CommandExecutor;
 import com.next.game.commands.implementation.*;
 import com.next.script.Command;
+import com.next.script.ExecutorDependencies;
 import com.next.script.ScriptExecutor;
 import com.next.io.InputReader;
 import com.next.script.Instruction;
@@ -17,8 +18,8 @@ public class ScriptExecutorImpl implements ScriptExecutor {
 
     private final Map<Command, CommandExecutor> executors = new HashMap<>();
 
-    public ScriptExecutorImpl() {
-        executors.put(Command.TEXT, new TypeExecutor());
+    public ScriptExecutorImpl(ExecutorDependencies dependencies) {
+        executors.put(Command.PRINT, new TypeExecutor());
         executors.put(Command.WAIT, new ContinueExecutor());
         executors.put(Command.INPUT, new InputExecutor());
         executors.put(Command.SELECT, new OptionsExecutor(new InputReader()));
@@ -27,6 +28,7 @@ public class ScriptExecutorImpl implements ScriptExecutor {
         executors.put(Command.CLEAR, new ClearConsoleExecutor());
         executors.put(Command.SLEEP, new SleepExecutor());
         executors.put(Command.VAR, new SetVarExecutor());
+        executors.put(Command.CALL_SCRIPT, new CallScriptExecutor(dependencies.getScriptParser(), this));
     }
 
     @Override

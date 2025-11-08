@@ -1,45 +1,3 @@
--- COMENTARY THAT SHOULD BE IGNORED
-
-\set-var
-playerGold:10
-playerXP:30
-
-\text
-(Texto inicial de ambiência...)
-
-\waitInput
-\clear
-
-\text
-Thomas e Siltar adentram os portões da cidade, e marcham por suas ruas movimentadas. O início da noite parece não diminuir a multidão de vozes vindas dos edifícios em torno da praça central. As luminárias ao longo das ruas vão sendo acendidas, e conforme mais e mais estrelas brotam no céu limpo daquela noite, mais as tavernas locais parecem encher.
-
-Vocês dois conseguem vaga na hospedaria Durma-bem, e deixam a maior parte dos seus equipamentos lá, bem como conseguem um local para cuidar de seus cavalos. Siltar tem alguma dificuldade com o dialeto local, mas você é quase um nativo no idioma. Longas horas ainda os separam do amanhecer, e uma caneca de cerveja e uma lareira quente não cairiam nada mal.
-
-Qual taverna você gostaria de visitar esta noite?
-
-\begin-options
-\option
-Cerveja com Cereja (provavelmente o bar dos bundas moles e frescos. Tudo é caro, portanto deve ser bom)
-
-\option
-Chifre do Unicórnio (parece uma taverna tradicional e clássica, com boa bebida, boa música, e conversas amigáveis)
-
-\option
-Bar Zói-de-cobra (parece a mais barata, mais vagabunda, e onde há mais arruaceiros, mas quem sabe o que os vagabundos escondem...)
-
-\end-options
-
--- BLOCO CERVEJA COM CEREJA
--- ************************
-\begin-case: input==1
-\text
-Vocês se dirigem para o Cerveja com Cereja!
-\end-case
-
-
--- BLOCO CHIFRE DO UNICÓRNIO
--- *************************
-\begin-case: input==2
 \text
 No chifre do unicórnio...
 
@@ -208,28 +166,3 @@ eu esperaria, apesar de menos do que eu gostaria".
 "", .
 \input
 \end-case
-
-\end-case
-
--- Fim bloco Chifre-do-unicórnio
-\end-case
-
-
--- BLOCO ZÓI-DE-COBRA
--- ******************
-\begin-case: input==3
-\text
-Vocês encaram o Bar Zói-de-cobra por um instante, e decidem entrar.
-\end-case
-
-\sleep
-2500
-
-\line
-
-\line
-\text
-Um novo dia amanhece!
-
-\load-file
-2

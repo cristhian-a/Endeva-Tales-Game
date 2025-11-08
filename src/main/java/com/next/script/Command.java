@@ -1,7 +1,7 @@
 package com.next.script;
 
 public enum Command {
-    TEXT,
+    PRINT,
     WAIT,
     SLEEP,
     INPUT,
@@ -10,5 +10,6 @@ public enum Command {
     CASE,
     NEW_LINE,
     CLEAR,
-    VAR
+    VAR,
+    CALL_SCRIPT
 }

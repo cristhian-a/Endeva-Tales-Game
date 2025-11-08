@@ -1,6 +1,8 @@
 {
   "title": "Thomas & Siltar",
   "description": "A jornada de dois caçadores de recompensas indo atrás de fortunas.",
+  "pathKey": "thomas-and-siltar",
+  "startScript": "thomas-and-siltar/1/1",
   "character": {
     "name": "Thomas Tirrois",
     "health": 100,
