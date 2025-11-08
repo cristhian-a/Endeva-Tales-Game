@@ -2,7 +2,7 @@ package com.next.game.commands.implementation;
 
 import com.next.core.model.session.GameSession;
 import com.next.game.commands.CommandExecutor;
-import com.next.game.script.ScriptExecutor;
+import com.next.script.ScriptExecutor;
 import com.next.script.Instruction;
 import com.next.util.ConditionEvaluator;
 

@@ -2,8 +2,8 @@ package com.next.game;
 
 import com.next.core.data.scenes.AdventureData;
 import com.next.core.model.session.GameSession;
-import com.next.game.script.ScriptExecutor;
-import com.next.game.script.implementation.ScriptExecutorImpl;
+import com.next.script.ScriptExecutor;
+import com.next.script.implementation.ScriptExecutorImpl;
 import com.next.graphics.TextBuilder;
 import com.next.graphics.TextPrinter;
 import com.next.graphics.menu.MainMenu;

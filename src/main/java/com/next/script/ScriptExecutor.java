@@ -1,7 +1,6 @@
-package com.next.game.script;
+package com.next.script;
 
 import com.next.core.model.session.GameSession;
-import com.next.script.Instruction;
 
 import java.util.List;
 
