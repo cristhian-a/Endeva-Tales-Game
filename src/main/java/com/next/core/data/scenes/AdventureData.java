@@ -9,6 +9,8 @@ public class AdventureData {
     public String fileName;
     public String title;
     public String description;
+    public String pathKey;
+    public String startScript;
     public Character character;
     public List<Scene> scenes;
 }

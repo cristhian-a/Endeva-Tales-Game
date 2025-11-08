@@ -17,7 +17,7 @@ public class ScriptParserImpl implements ScriptParser {
 
     public ScriptParserImpl() {
         commandByKey = new HashMap<>();
-        commandByKey.put("\\text", Command.TEXT);
+        commandByKey.put("\\text", Command.PRINT);
         commandByKey.put("\\waitInput", Command.WAIT);
         commandByKey.put("\\sleep", Command.SLEEP);
         commandByKey.put("\\input", Command.INPUT);
@@ -27,6 +27,7 @@ public class ScriptParserImpl implements ScriptParser {
         commandByKey.put("\\line", Command.NEW_LINE);
         commandByKey.put("\\clear", Command.CLEAR);
         commandByKey.put("\\set-var", Command.VAR);
+        commandByKey.put("\\load-script", Command.CALL_SCRIPT);
     }
 
     @Override

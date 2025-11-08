@@ -1,0 +1,168 @@
+\text
+No chifre do unicórnio...
+
+As notas musicais vindas de um alaúde e de uma flauta animam a tumultuada taverna, que está tão cheia que é difícil
+enxergar alguma mesa vazia. Duas garçonetes correm entre a multidão, carregando bandeijas e tentando atender ao maior
+número possível de clientes. O cheiro da comida quente preenche o salão inteiro, abrindo ainda mais o apetite de Thomas
+e Siltar, que anseiavam a dias por uma refeição decente. Thomas comentava sobre o aroma da comida, quando é interrompido
+pelas notas finais da música que os bardos tocavam, que são imediatamente seguidas por gargalhadas e assovios dos
+clientes da taverna.
+
+Thomas e Siltar conseguem abrir caminho e chegar até dois lugares desocupados juntos ao balcão. Eles pedem ao taverneiro
+as suas bebibas, bem como uma boa refeição.
+
+"Finalmente vou poder comer algo que não seja o seu ensopado", disse Siltar.
+\input
+\line
+\text
+"Você reclama, mas ainda prefere o ensopado a comer as rações", responde Thomas.
+\input
+\line
+\text
+"Prefiro guardar as rações pra uma emergência, tipo quando você decide preparar algum cozido", disse Siltar.
+\input
+\line
+\text
+"Oras, cale a boca", disse Thomas, fingindo indiginação. "Me diga, onde foi parar toda a sua experiência na cozinha dos
+seus anos de guerra?".
+\input
+\line
+\text
+"Na guerra funcionava assim: Ou tínhamos alguém para cozinhar, ou os tempos exigíamos que catássemos bagas e comecemos o
+capim dos campos", respondeu Siltar.
+\input
+\line
+\text
+"Então pode se juntar aos nossos cavalos na próxima refeição deles quando eu fizer ensopado", disse Thomas.
+\input
+\line
+\text
+"E já não é com o capim da estrada que fazes a nossa sopa?", respondeu Siltar soltando uma risada.
+\input
+\line
+
+\text
+As canecas de cerveja chegam, e os dois guerreiros bebericam um pouco da bebida enquanto escutam a multidão cantar junto
+à próxima canção dos dois bardos.
+
+"Acha que podemos conseguir algo de útil por aqui?", perguntou Thomas.
+\input
+\line
+\text
+Siltar lhe lançou um olhar desconfiado por um segundo.
+
+"Já está arrumando uma desculpa para ir cantar alguma garota?", perguntou Siltar.
+\input
+\line
+\text
+"Você critíca meus métodos, mas nunca ouvi nada sobre os resultados", disse Thomas.
+\input
+\line
+\text
+"Não precisa fingir que vai atrás delas pedir algo sobre o trabalho, não pra mim", disse Siltar. "O que tem para ser
+descoberto que não saberemos amanhã?"
+\input
+\line
+\text
+"Você mesmo disse, nobres em ruínas dificilmente serão transparentes conosco. Além disso, essa é uma cidade complicada,
+há muita luta pelo controle dela, tanto pelo topo, quanto pelo seu submundo", response Thomas.
+\input
+\line
+\text
+"Hmm, então você pensou na possibilidade dele estar envolvido em algum esquema no submundo da cidade?", perguntou Siltar
+\input
+\line
+\text
+"Acho até possível que esteja em problemas tanto com a elite, quanto com as ratazanas. De qualquer forma, pensei que seria
+interessante descobrirmos informações sobre a cidade". disse Thomas.
+\input
+\line
+\text
+"Pois bem, podemos fazer isso. Mas antes, eu quero a minha refeição", respondeu Siltar.
+\input
+\line
+
+\text
+Chegam os dois pratos, e ambos jantam, a melhor refeição que eles tem em dias. Ambos pedem mais um caneco de cerveja, e
+quando o taverneiro os entrega, é a sua oportunidade de lhe perguntar algo:
+
+\begin-options
+\option
+Por aqui é sempre cheio assim?
+\option
+Como que anda de encrencas pela cidade? Alguém buscando alguém para resolver problemas?
+\option
+(Ficar quieto)
+\end-options
+
+\begin-case: input==1
+\text
+"É sim. A cidade é grande, e somos a melhor taverna que há por aqui", responde o taverneiro.
+\end-case
+
+\begin-case: input==2
+\text
+"Criminosos vagabundos tem aos montes por aí", responde o taverneiro. "Mas se você quer pessoas dispostas a pagar, tem
+muitos que gostariam de se livrar das despesas com os homens-rato, mas sério, isso é melhor não se meterem."
+\input
+\line
+\text
+"Homens-rato? Licantropos?", perguntou Thomas
+\input
+\line
+\text
+"Eu não sei o que isso significa, mas se quer dizer monstros, sim, são monstros", respondeu o taverneiro.
+\input
+\line
+\text
+"Nenhum prêmio para quem acabar com eles?", perguntou Siltar
+\input
+\line
+\text
+"Como eu disse, muitos gostariam de se livrar deles", respondeu o taverneiro, "Mas eles são muitos, e estão completamente
+enraizados no submundo da cidade. Os nobres já desistiram de lutar contra eles faz tempo. Na verdade, dizem as más línguas
+que alguns até andam trabalhando com as feras".
+\input
+
+\begin-options
+\option
+Típico
+\option
+E a você, eles deixam em paz?
+\option
+E as más línguas também disseram quem seriam esses nobres?
+\end-options
+
+\begin-case: input==1
+\text
+"É sim, mas alguns dos poderosos realmente fazem algo para deixar os homens-rato longe da gente, o que já é mais do que
+eu esperaria, apesar de menos do que eu gostaria".
+\input
+\line
+\text
+"Aposto que sim", disse Thomas. "O que eles fazem? Negociam com os criminosos?"
+\input
+\line
+\text
+"Não sei dizer. Nobres não frequentam minha taverna, e não pergunto pros marginais", respondeu o taverneiro.
+\input
+\line
+\end-case
+
+\begin-case: input==2
+\text
+"Na maior parte do tempo sim. Todos que prosperam por aqui pecisam arrumar uma maneira de lidar com eles cedo ou tarde"
+\input
+\line
+\text
+"Quer dizer que ou você negocia com eles, ou tem um nobre para lhe proteger", disse Thomas.
+\input
+\line
+\text
+"Ou você fecha as portas", disse o taverneiro.
+\input
+\line
+\text
+"", .
+\input
+\end-case
