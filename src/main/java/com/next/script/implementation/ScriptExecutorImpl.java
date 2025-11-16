@@ -7,7 +7,6 @@ import com.next.game.commands.implementation.*;
 import com.next.script.Command;
 import com.next.script.ExecutorDependencies;
 import com.next.script.ScriptExecutor;
-import com.next.io.InputReader;
 import com.next.script.Instruction;
 
 import java.util.HashMap;
@@ -19,13 +18,13 @@ public class ScriptExecutorImpl implements ScriptExecutor {
     private final Map<Command, CommandExecutor> executors = new HashMap<>();
 
     public ScriptExecutorImpl(ExecutorDependencies dependencies) {
-        executors.put(Command.PRINT, new TypeExecutor());
-        executors.put(Command.WAIT, new ContinueExecutor());
-        executors.put(Command.INPUT, new InputExecutor());
-        executors.put(Command.SELECT, new OptionsExecutor(new InputReader()));
+        executors.put(Command.PRINT, new TypeExecutor(dependencies.getTextPrinter()));
+        executors.put(Command.WAIT, new ContinueExecutor(dependencies.getInputReader(), dependencies.getTextPrinter()));
+        executors.put(Command.INPUT, new InputExecutor(dependencies.getInputReader(), dependencies.getTextPrinter()));
+        executors.put(Command.SELECT, new OptionsExecutor(dependencies.getInputReader(), dependencies.getTextPrinter()));
         executors.put(Command.CASE, new CaseExecutor(this));
-        executors.put(Command.NEW_LINE, new NewLineExecutor());
-        executors.put(Command.CLEAR, new ClearConsoleExecutor());
+        executors.put(Command.NEW_LINE, new NewLineExecutor(dependencies.getTextPrinter()));
+        executors.put(Command.CLEAR, new ClearConsoleExecutor(dependencies.getTextPrinter()));
         executors.put(Command.SLEEP, new SleepExecutor());
         executors.put(Command.VAR, new SetVarExecutor());
         executors.put(Command.CALL_SCRIPT, new CallScriptExecutor(dependencies.getScriptParser(), this));
