@@ -2,14 +2,16 @@ package com.next.game;
 
 import com.next.core.data.scenes.AdventureData;
 import com.next.core.model.session.GameSession;
+import com.next.graphics.TextPrinter;
+import com.next.io.InputReader;
 import com.next.script.ExecutorDependencies;
 import com.next.script.ScriptExecutor;
 import com.next.script.implementation.ScriptExecutorImpl;
 import com.next.graphics.TextBuilder;
-import com.next.graphics.TextPrinter;
+import com.next.graphics.implementation.ConsolePrinter;
 import com.next.graphics.menu.MainMenu;
 import com.next.io.FileReader;
-import com.next.io.InputReader;
+import com.next.io.implementation.SystemInReader;
 import com.next.io.JsonReader;
 import com.next.script.Instruction;
 import com.next.script.ScriptParser;
@@ -26,16 +28,19 @@ public class Game {
     private GameSession gameSession;
     private final Settings settings;
     private final InputReader inputReader;
+    private final TextPrinter textPrinter;
     private final ScriptParser scriptParser;
     private final ScriptExecutor scriptExecutor;
 
     public Game() {
         this.gameSession = new GameSession();
-        this.inputReader = new InputReader();
+        this.inputReader = new SystemInReader();
+        this.textPrinter = new ConsolePrinter();
         this.scriptParser = new ScriptParserImpl();
 
         ExecutorDependencies executorDependencies = new ExecutorDependencies();
         executorDependencies.setInputReader(this.inputReader);
+        executorDependencies.setTextPrinter(this.textPrinter);
         executorDependencies.setScriptParser(this.scriptParser);
         this.scriptExecutor = new ScriptExecutorImpl(executorDependencies);
 
@@ -46,7 +51,7 @@ public class Game {
         this.isRunning = true;
         this.settings.setDevMode(true);
 
-        TextPrinter.clearConsole();
+        textPrinter.clear();
 
         resolveMainMenu();
         run();
@@ -87,7 +92,8 @@ public class Game {
     }
 
     private void resolveMainMenu() {
-        TextPrinter.clearAndPrintln(MainMenu.getTitle());
+        textPrinter.clear();
+        textPrinter.println(MainMenu.getTitle());
 
         TextBuilder tb = new TextBuilder();
 
@@ -96,7 +102,7 @@ public class Game {
 
         String mainMenu = MainMenu.getMainMenu();
         String options = tb.buildMenuText(mainMenu, titles);
-        TextPrinter.typeText(options);
+        textPrinter.type(options);
 
         String selectedOption = inputReader.read();
         int optionValue = 0;
@@ -107,22 +113,23 @@ public class Game {
                     break;
             }
 
-            TextPrinter.clearAndPrintln(MainMenu.getTitle());
-            TextPrinter.println("Opção Inválida!\n");
-            TextPrinter.println(options);
+            textPrinter.clear();
+            textPrinter.println(MainMenu.getTitle());
+            textPrinter.println("Opção Inválida!\n");
+            textPrinter.println(options);
             selectedOption = inputReader.read();
         } while (isRunning);
 
         var selected = adventureTitles.get(optionValue);
 
         var result = JsonReader.getAdventureData(selected.fileName);
-        TextPrinter.typeTextSlowly("Opção selecionada: " + result.title);
+        textPrinter.typeSlowly("Opção selecionada: " + result.title);
         ThreadAssist.sleep(2000);
 
         this.gameSession.setAdventureData(result);
         this.gameSession.setCharacters(List.of(result.character));
 
-        TextPrinter.clearConsole();
+        textPrinter.clear();
     }
 
     private List<Instruction> readScript(String path) {
