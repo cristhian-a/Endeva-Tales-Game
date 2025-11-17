@@ -1,6 +1,6 @@
 package com.next.util;
 
-public class PCG32 {
+public class PCG32 implements Rng {
     private final long inc;
     private long state;
 
@@ -12,6 +12,7 @@ public class PCG32 {
         nextInt();
     }
 
+    @Override
     public int nextInt() {
         long oldState = this.state;
         this.state = oldState * 6364136223846793005L + this.inc;
@@ -20,20 +21,9 @@ public class PCG32 {
         return Integer.rotateRight(xorShifted, rot);
     }
 
+    @Override
     public float nextFloat() {
         return (nextInt() >>> 8) * (1.0f / (1 << 24));
     }
 
-    public boolean chance(float probability) {
-        return nextFloat() < probability;
-    }
-
-    public int rollDice(int sides) {
-        int bound = Integer.MAX_VALUE - (Integer.MAX_VALUE % sides);
-        int r;
-        do {
-            r = nextInt() & 0x7FFFFFFF;
-        } while (r >= bound);
-        return (r % sides) + 1;
-    }
 }

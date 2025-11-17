@@ -19,6 +19,7 @@ public class Character {
     private Species species;
     private Attributes attributes;
     private List<Item> inventory;
+    private Equipment equipment;
     private Expertise[] expertises;
 
     public Character() {

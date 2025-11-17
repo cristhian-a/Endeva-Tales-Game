@@ -69,19 +69,24 @@ public class Game {
 
     private void tick() {
 //        for (int i = 0; i < 3; i++) {
-//            TextPrinter.clearAndPrint(".");
+//            textPrinter.clear();
+//            textPrinter.print(".");
 //            ThreadAssist.quickSleep();
-//            TextPrinter.clearAndPrint("..");
+//            textPrinter.clear();
+//            textPrinter.print("..");
 //            ThreadAssist.quickSleep();
-//            TextPrinter.clearAndPrint("...");
+//            textPrinter.clear();
+//            textPrinter.print("...");
 //            ThreadAssist.quickSleep();
 //        }
 //
-//        TextPrinter.clearAndTypeSlowly("Sexta-feira, 2 de Março de 1295...");
+//        textPrinter.clear();
+//        textPrinter.typeSlowly("Sexta-feira, 2 de Março de 1295...");
 //        ThreadAssist.sleep();
-//        TextPrinter.sweepText("Sexta-feira, 2 de Março de 1295...");
+//        textPrinter.sweepText("Sexta-feira, 2 de Março de 1295...");
 //
-//        TextPrinter.clearAndType("Pressione ENTER para continuar!\n");
+//        textPrinter.clear();
+//        textPrinter.type("Pressione ENTER para continuar!\n");
 //        inputReader.read();
 
         String startScriptPath = "adventures/scripts/" + this.gameSession.getAdventureData().startScript;

@@ -4,11 +4,9 @@ import lombok.Data;
 
 @Data
 public class Attributes {
-    private int body;
     private int combat;
-    private int skill;
     private int speed;
-    private int reflexes;
+    private int body;
     private int senses;
     private int mind;
     private int spirit;
